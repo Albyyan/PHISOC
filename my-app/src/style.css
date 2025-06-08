@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 
-
 html, body {
   width: 100%;
   min-height: 200vh; /* Make page scrollable */
@@ -49,7 +48,6 @@ html, body {
   animation: spin 2s ease-in-out forwards;
 }
 
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -80,7 +78,7 @@ html, body {
 
 .name-banner {
   position: fixed;
-  top: 50%;
+  top: 40%;
   left: 5%;
   transform: translateY(-50%) scale(0.9, 0.9);
   font-family: 'Jockey One', sans-serif;
@@ -105,59 +103,66 @@ html, body {
   opacity: 1;
 }
 
-.menu-button {
+.text-section {
   position: fixed;
-  top: 1.5rem;
-  right: 2rem;
-  z-index: 20;
-  background: transparent;
-  border: none;
+  top: 85%;
+  left: 5%;
+  right: 45%;
+  transform: translateY(-50%) scale(0.95, 0.95);
+  font-family: 'Georgia', serif;
+  font-size: 1.2rem;
   color: #C9A78C;
-  font-family: 'Jockey One', sans-serif;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 0;
-  transition: transform 0.3s ease;
-  letter-spacing: -2px;
-}
-
-.menu-button:hover {
-  transform: scaleX(1.4);
-}
-
-.menu-tab {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 0;
-  background: rgba(0, 0, 0, 0.9);
-  color: #C9A78C;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden;
-  z-index: 15;
-  transition: height 0.5s ease;
-  padding: 2rem;
-  box-sizing: border-box;
-}
-
-.menu-tab.open {
-  height: 100vh;
-}
-
-.menu-tab ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 2rem;
+  line-height: 1.6;
+  z-index: 14;
   opacity: 0;
-  transition: opacity 0.8s ease 0.3s;
+  transition:
+    transform 1.5s ease,
+    opacity 1s ease 0.5s;
 }
 
-.menu-tab.open ul {
+.text-section.loaded {
+  transform: translateY(-50%) scale(1, 1);
   opacity: 1;
 }
 
-.menu-tab ul li {
-  margin: 1rem 0;
+.text-section p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.text-section p:last-child {
+  margin-bottom: 2rem;
+}
+
+.learn-more-btn {
+  background: transparent;
+  border: 2px solid #C9A78C;
+  color: #C9A78C;
+  font-family: 'Jockey One', sans-serif;
+  font-weight: bold;
   font-size: 1.2rem;
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.learn-more-btn:hover {
+  transform: scaleX(1.4);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .name-banner {
+    font-size: 15vw;
+    left: 2%;
+  }
+  
+  .text-section {
+    left: 2%;
+    right: 2%;
+    font-size: 1rem;
+    top: 100%;
+  }
 }
