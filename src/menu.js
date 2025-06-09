@@ -20,12 +20,11 @@ export function createMenu() {
   // Create ul element
   const ul = document.createElement('ul');
   
-  // Define menu items with their corresponding pages
   const menuItems = [
     { text: 'Home', page: 'index.html' },
-    { text: 'Events', page: 'events.html' },
-    { text: 'About', page: 'about.html' },
+    { text: 'Events', page: 'index.html?page=events' },
   ];
+
   
   // Create li elements with click handlers
   menuItems.forEach(item => {

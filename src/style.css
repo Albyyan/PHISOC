@@ -166,3 +166,31 @@ html, body {
     top: 100%;
   }
 }
+
+@media (max-width: 768px) {
+  .name-banner,
+  .text-section {
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+    margin: 2rem 5%;
+  }
+
+  .text-section {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 0;
+  }
+
+  .name-banner {
+    font-size: 10vw;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .learn-more-btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+}

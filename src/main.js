@@ -1,10 +1,11 @@
 import './style.css';
 import backgroundImage from './asset/Background.png';
 import { createMenu } from './menu.js';
+import { renderEventsPage } from './events.js';
 
 const app = document.querySelector('#app');
 
-// Create loading screen
+// Loading screen
 const loadingScreen = document.createElement('div');
 loadingScreen.id = 'loading-screen';
 
@@ -13,28 +14,31 @@ loader.className = 'loader';
 loadingScreen.appendChild(loader);
 document.body.appendChild(loadingScreen);
 
-// Wait for everything to load
 window.addEventListener('load', () => {
+  const params = new URLSearchParams(window.location.search);
+  const page = params.get('page');
+
   setTimeout(() => {
-    // Remove loading screen
     loadingScreen.remove();
 
-    // Set background
+    // === EVENTS PAGE ===
+    if (page === 'events') {
+      renderEventsPage();
+      return;
+    }
+
+    // === HOMEPAGE ===
     app.style.backgroundImage = `url(${backgroundImage})`;
     app.style.backgroundSize = 'cover';
     app.style.backgroundPosition = 'center';
     app.style.minHeight = '100vh';
-
-    // Trigger zoom-out animation
     app.classList.add('zoom-out');
 
-    // Create name banner
     const nameBanner = document.createElement('div');
     nameBanner.className = 'name-banner';
     nameBanner.innerHTML = 'UNSW<br>PHILOSOPHY<br>SOCIETY.';
     document.body.appendChild(nameBanner);
 
-    // Create text section
     const textSection = document.createElement('div');
     textSection.className = 'text-section';
     textSection.innerHTML = `
@@ -49,17 +53,15 @@ window.addEventListener('load', () => {
       textSection.classList.add('loaded');
     }, 10);
 
-    // Create menu using the imported function
     createMenu();
 
-    // Add scroll effect for name banner and text section
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      const bannerTranslateY = -50 - (scrollY * 0.2); // Move up as user scrolls
-      const textTranslateY = -50 - (scrollY * 0.15); // Move up slightly slower than banner
-      
+      const bannerTranslateY = -50 - scrollY * 0.2;
+      const textTranslateY = -50 - scrollY * 0.15;
+
       nameBanner.style.transform = `translateY(${bannerTranslateY}%) scale(1, 1)`;
       textSection.style.transform = `translateY(${textTranslateY}%) scale(1, 1)`;
     });
-  }, 2000); // matches 2s spin time
+  }, 2000);
 });
