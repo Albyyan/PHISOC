@@ -2,6 +2,7 @@ import './style.css';
 import backgroundImage from './asset/Background.png';
 import { createMenu } from './menu.js';
 import { renderEventsPage } from './events.js';
+import { renderAboutPage } from './about.js';
 
 const app = document.querySelector('#app');
 
@@ -27,6 +28,12 @@ window.addEventListener('load', () => {
       return;
     }
 
+    // === ABOUT PAGE ===
+    if (page === 'about') {
+      renderAboutPage();
+      return;
+    }
+
     // === HOMEPAGE ===
     app.style.backgroundImage = `url(${backgroundImage})`;
     app.style.backgroundSize = 'cover';
@@ -47,6 +54,12 @@ window.addEventListener('load', () => {
       <button class="learn-more-btn">LEARN MORE</button>
     `;
     document.body.appendChild(textSection);
+
+    // Add click handler for learn more button
+    const learnMoreBtn = textSection.querySelector('.learn-more-btn');
+    learnMoreBtn.addEventListener('click', () => {
+      window.location.href = 'index.html?page=about';
+    });
 
     setTimeout(() => {
       nameBanner.classList.add('loaded');

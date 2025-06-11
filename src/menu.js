@@ -23,6 +23,8 @@ export function createMenu() {
   const menuItems = [
     { text: 'Home', page: 'index.html' },
     { text: 'Events', page: 'index.html?page=events' },
+    { text: 'About', page: 'index.html?page=about' },
+
   ];
 
   

@@ -152,8 +152,14 @@ html, body {
   transform: scaleX(1.4);
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
+  /* Remove overflow restrictions for mobile */
+  html, body {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: auto !important;
+  }
+  
   .name-banner {
     font-size: 15vw;
     left: 2%;
@@ -174,19 +180,25 @@ html, body {
     transform: none !important;
     opacity: 1 !important;
     transition: none !important;
-    margin: 2rem 5%;
-  }
-
-  .text-section {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-top: 0;
   }
 
   .name-banner {
     font-size: 10vw;
     line-height: 1;
-    margin-bottom: 1rem;
+    text-align: center;
+    width: 90%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20vh auto 5vh auto;
+  }
+
+  .text-section {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0 5%;
+    text-align: left;
   }
 
   .learn-more-btn {
