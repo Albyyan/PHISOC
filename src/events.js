@@ -40,19 +40,19 @@ export function renderEventsPage() {
   const sectionsData = [
     {
       title: 'Philosophical Roundtables',
-      description: 'Join us for intimate discussions on classical and contemporary philosophical topics. Explore questions about ethics, metaphysics, and the nature of reality in a welcoming environment.',
+      description: 'Join us for intimate discussions on classical and contemporary philosophical topics. Explore questions about ethics, metaphysics, and the nature of reality in a welcoming environment. Our roundtables feature guided conversations on everything from ancient Stoicism to modern existentialism, quantum consciousness to moral relativism. Whether you\'re grappling with free will, pondering the meaning of life, or debating the foundations of knowledge, our weekly sessions provide a space for deep intellectual exploration. Led by passionate students and guest speakers, these discussions encourage critical thinking while fostering genuine connections with fellow seekers of wisdom.',
       image: rtPainting,
       reverse: false
     },
     {
       title: 'Social Events',
-      description: 'Connect with fellow philosophy enthusiasts at our regular social gatherings. From casual coffee chats to themed parties, build lasting friendships within our community.',
+      description: 'Connect with fellow philosophy enthusiasts at our regular social gatherings. From casual coffee chats to themed parties, build lasting friendships within our community. Our social calendar includes philosophy-themed trivia nights, movie screenings of thought-provoking films, book club meetings discussing everything from Plato to contemporary thinkers, and casual dinner gatherings where philosophical debates flow as freely as the conversation. We also organize study groups during exam periods, collaborative essay workshops, and relaxed meet-ups at local cafes. These events provide the perfect opportunity to unwind while still engaging with the ideas that fascinate us, creating bonds that extend far beyond the lecture hall.',
       image: socialPainting,
       reverse: true
     },
     {
       title: 'ARC O-Week',
-      description: 'Meet us during O-Week at the ARC Festival! Discover what the Philosophy Society has to offer and sign up to join our vibrant community of thinkers and questioners.',
+      description: 'Meet us during O-Week at the ARC Festival! Discover what the Philosophy Society has to offer and sign up to join our vibrant community of thinkers and questioners. Our O-Week stall features interactive philosophy games, thought experiments you can try on the spot, and mini-debates that showcase the excitement of philosophical inquiry. Chat with our enthusiastic committee members about upcoming events, learn about our mentorship program for new philosophy students, and get a taste of our welcoming community culture. We\'ll have information about our semester plans, including speaker series featuring renowned philosophers, field trips to philosophy conferences, and collaborative projects with other universities. Don\'t miss your chance to become part of UNSW\'s most intellectually stimulating society.',
       image: arcPainting,
       reverse: false
     }

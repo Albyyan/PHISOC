@@ -110,7 +110,15 @@
 }
 
 .section-description {
-  margin-top: 20vh;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  color: #C9A78C;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.about-text {
+  margin-top: 5vw;
   font-family: 'Georgia', serif;
   font-size: 1rem;
   color: #C9A78C;
@@ -135,6 +143,10 @@
     overflow: auto !important;
   }
 
+  .about-text {
+    margin-top: 10vw;
+  }
+
   .page-title {
     font-size: 12vw;
     position: fixed;
@@ -150,7 +162,15 @@
   }
 
   .content-wrapper {
-    margin-top: 50vh;
+    margin-top: 30vh;
+  }
+
+  .about-wrapper {
+    margin-top: 60vh;
+  }
+
+  .about-content-wrapper {
+    margin-top: 60vh;
   }
 
   .intro-section {
@@ -176,21 +196,33 @@
 
   .section-content {
     order: 2;
+    display: flex;
+    flex-direction: column;
   }
 
   .section-image {
     order: 1;
     max-width: 100%;
+    margin-bottom: 1rem;
   }
 
   .section-title {
     font-size: 2.5rem;
+    margin-bottom: 0;
+    line-height: 1;
+    order: 1;
   }
 
   .section-description {
-    margin-top: -15vh;
     font-size: 0.9rem;
     text-align: left;
+    order: 2;
+    margin-top: 0;
+    padding-top: 0;
   }
 
+  .intro-text {
+    font-size: 1rem;
+    text-align: left;
+  }
 }
