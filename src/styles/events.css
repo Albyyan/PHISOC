@@ -1,0 +1,391 @@
+/* Events Page Styles */
+.events-page {
+  background-color: #0f0f0f;
+  min-height: 100vh;
+}
+
+.events-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* Hero Section */
+.events-hero {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.hero-decoration {
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #C9A78C, transparent);
+}
+
+.events-hero h1 {
+  font-family: 'Jockey One', sans-serif;
+  font-size: 4.5rem;
+  color: #C9A78C;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.hero-tagline {
+  font-size: 1.3rem;
+  color: #8a8a8a;
+}
+
+/* Tabs */
+.events-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.tab-btn {
+  padding: 1rem 2.5rem;
+  background: transparent;
+  border: 2px solid #3a3a3a;
+  color: #8a8a8a;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #C9A78C;
+  transition: left 0.3s;
+  z-index: -1;
+}
+
+.tab-btn:hover::before,
+.tab-btn.active::before {
+  left: 0;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+  border-color: #C9A78C;
+  color: #1a1a1a;
+}
+
+/* Event Card */
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.event-card {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  overflow: hidden;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.event-card:hover {
+  border-color: #C9A78C;
+  transform: translateX(10px);
+}
+
+.event-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 0;
+  background: #C9A78C;
+  transition: height 0.3s;
+}
+
+.event-card:hover::before {
+  height: 100%;
+}
+
+/* Event Image */
+.event-image {
+  position: relative;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-overlay {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+}
+
+.event-type {
+  padding: 0.5rem 1rem;
+  color: #1a1a1a;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+}
+
+/* Event Content */
+.event-content {
+  padding: 2.5rem;
+  display: flex;
+  gap: 2rem;
+  position: relative;
+}
+
+.event-date-badge {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  background: #C9A78C;
+  color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.date-day {
+  font-family: 'Jockey One', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.date-month {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.event-details h2 {
+  font-size: 2rem;
+  color: #C9A78C;
+  margin-bottom: 1rem;
+}
+
+.event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #8a8a8a;
+  font-size: 0.95rem;
+}
+
+.meta-icon {
+  font-size: 1.2rem;
+}
+
+.event-description {
+  color: #a89f95;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.rsvp-btn {
+  padding: 0.8rem 2rem;
+  background: transparent;
+  border: 2px solid #C9A78C;
+  color: #C9A78C;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.rsvp-btn:hover {
+  background: #C9A78C;
+  color: #1a1a1a;
+  transform: scaleX(1.1);
+}
+
+/* Past Events Grid */
+.past-events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.past-event-card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.past-event-card:hover {
+  border-color: #C9A78C;
+  transform: translateY(-5px);
+}
+
+.past-event-image {
+  height: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.past-event-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.past-label {
+  background: rgba(201, 167, 140, 0.9);
+  color: #1a1a1a;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.past-event-info {
+  padding: 1.5rem;
+}
+
+.past-event-info h3 {
+  font-size: 1.3rem;
+  color: #C9A78C;
+  margin-bottom: 0.5rem;
+}
+
+.past-event-date {
+  color: #8a8a8a;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.past-event-type {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+  margin-top: 6rem;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  padding: 4rem;
+  text-align: center;
+}
+
+.newsletter-content h2 {
+  font-size: 2.5rem;
+  color: #C9A78C;
+  margin-bottom: 1rem;
+}
+
+.newsletter-content p {
+  font-size: 1.1rem;
+  color: #8a8a8a;
+  margin-bottom: 2rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  background: #0f0f0f;
+  border: 2px solid #3a3a3a;
+  color: #C9A78C;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: #C9A78C;
+}
+
+.newsletter-btn {
+  padding: 1rem 2.5rem;
+  background: #C9A78C;
+  border: none;
+  color: #1a1a1a;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.newsletter-btn:hover {
+  background: #E5C9A8;
+  transform: scaleX(1.1);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .events-hero h1 {
+    font-size: 3rem;
+  }
+
+  .event-card {
+    grid-template-columns: 1fr;
+  }
+
+  .event-image {
+    height: 250px;
+  }
+
+  .past-events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-btn {
+    width: 100%;
+  }
+}

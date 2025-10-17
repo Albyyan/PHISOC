@@ -1,0 +1,57 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  background-color: #0f0f0f;
+  overflow-x: hidden;
+  color: #C9A78C;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Georgia', serif;
+  color: #C9A78C;
+}
+
+p {
+  font-family: 'Georgia', serif;
+  color: #a89f95;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: 'Georgia', serif;
+  cursor: pointer;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C9A78C;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E5C9A8;
+}
