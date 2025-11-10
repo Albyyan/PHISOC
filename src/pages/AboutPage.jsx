@@ -2,6 +2,11 @@ import React from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import '../styles/about.css';
+import discussionIcon from "../asset/discussion.png";
+import submissionIcon from "../asset/submissions.png";
+import connectionsIcon from "../asset/connections.png";
+import { Link } from "react-router-dom";
+import PageFadeLoader from '../components/PageFadeLoader';
 
 const teamMembers = [
   { role: 'President', name: 'TBA' },
@@ -12,30 +17,12 @@ const teamMembers = [
   { role: 'Treasurer', name: 'TBA' }
 ];
 
-const values = [
-  {
-    title: 'Intellectual Curiosity',
-    description: 'We foster a space where questions are celebrated and critical thinking is encouraged.'
-  },
-  {
-    title: 'Inclusive Dialogue',
-    description: 'Philosophy thrives in diversity. We welcome perspectives from all backgrounds and disciplines.'
-  },
-  {
-    title: 'Academic Excellence',
-    description: 'We maintain high standards in our publications and events while remaining accessible to all.'
-  },
-  {
-    title: 'Community Building',
-    description: 'Beyond academics, we create lasting connections between students who share a passion for ideas.'
-  }
-];
-
 export default function AboutPage() {
   return (
     <div className="about-page">
       <NavBar />
-      
+      <PageFadeLoader duration={600}>
+
       <div className="about-container">
         {/* Hero Section */}
         <section className="about-hero">
@@ -70,76 +57,46 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Values Section */}
-        <section className="values-section">
-          <div className="section-label">Our Values</div>
-          <h2>What We Stand For</h2>
-          <div className="values-grid">
-            {values.map((value, index) => (
-              <div key={index} className="value-card">
-                <div className="value-number">{String(index + 1).padStart(2, '0')}</div>
-                <h3>{value.title}</h3>
-                <p>{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* What We Do Section */}
         <section className="activities-section">
           <div className="section-label">What We Do</div>
           <h2>Our Activities</h2>
           <div className="activities-grid">
             <div className="activity-card">
-              <div className="activity-icon">📚</div>
+              <div className="activity-icon">
+                <img src={discussionIcon} alt="Discussion Icon" />
+              </div>
               <h3>Weekly Discussions</h3>
               <p>
-                Join our weekly discussion groups where we explore philosophical texts, 
+                Join our weekly discussion groups where we explore philosophical texts,
                 contemporary issues, and timeless questions in an informal, engaging atmosphere.
               </p>
             </div>
+
             <div className="activity-card">
-              <div className="activity-icon">✍️</div>
+              <div className="activity-icon">
+                <img src={submissionIcon} alt="Submission Icon"/>
+              </div>
               <h3>Publications</h3>
               <p>
-                Our journal features essays, poetry, and philosophical analysis from students 
+                Our journal features essays, poetry, and philosophical analysis from students
                 and academics, providing a platform for original thought and creative expression.
               </p>
             </div>
+
             <div className="activity-card">
-              <div className="activity-icon">🎓</div>
-              <h3>Guest Lectures</h3>
-              <p>
-                We host renowned philosophers, academics, and thinkers who share their 
-                research and engage with our community on pressing philosophical topics.
-              </p>
-            </div>
-            <div className="activity-card">
-              <div className="activity-icon">🏆</div>
-              <h3>Competitions</h3>
-              <p>
-                Our annual essay and creative writing competitions challenge students to 
-                think deeply and express their ideas with clarity and originality.
-              </p>
-            </div>
-            <div className="activity-card">
-              <div className="activity-icon">🤝</div>
-              <h3>Social Events</h3>
-              <p>
-                Beyond the academic, we organize social gatherings, movie nights, and 
-                casual meetups to build a strong, supportive community.
-              </p>
-            </div>
-            <div className="activity-card">
-              <div className="activity-icon">🌐</div>
+              <div className="activity-icon">
+                <img src={connectionsIcon} alt="Connections Icon"/>
+              </div>
               <h3>Collaborations</h3>
               <p>
-                We partner with other societies and departments to create interdisciplinary 
+                We partner with other societies and departments to create interdisciplinary
                 events that bridge philosophy with science, arts, and politics.
               </p>
             </div>
           </div>
         </section>
+
 
         {/* Team Section */}
         <section className="team-section">
@@ -167,13 +124,13 @@ export default function AboutPage() {
               there's a place for you in our society.
             </p>
             <div className="cta-buttons">
-              <a href="#get-involved" className="btn-primary">Get Involved</a>
-              <a href="#events" className="btn-secondary">View Events</a>
+              <Link to="/getinvolved" className="btn-primary">Get Involved</Link>
+              <Link to="/events" className="btn-secondary">View Events</Link>
             </div>
           </div>
         </section>
       </div>
-
+      </PageFadeLoader>
       <Footer />
     </div>
   );

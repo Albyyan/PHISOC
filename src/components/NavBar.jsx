@@ -8,6 +8,7 @@ const navItems = [
   { label: 'Events', to: '/events' },
   { label: 'Library', to: '/library' },
   { label: 'Get Involved', to: '/getinvolved' },
+  { label: 'Submit', to: '/submit' },
 ];
 
 export default function NavBar() {
@@ -19,21 +20,24 @@ export default function NavBar() {
     setOpen(false);
   }, [location.pathname]);
 
+  const toggleMenu = () => {
+    setOpen(!open);
+  };
+
   const baseLinkClass = 'nav-link';
-  const activeLinkClass = 'nav-link active'; // style `.active` in your CSS
+  const activeLinkClass = 'nav-link active';
 
   return (
     <nav className="nav-bar">
       <div className="nav-container">
-        {/* Logo: send folks to the welcome page ("/") by default.
-           If you prefer the dashboard as home, change to "/main". */}
-        <Link to="/main" className="logo" aria-label="UNSW Philosophy Society Home">
+        {/* Logo */}
+        <Link to="/" className="logo" aria-label="UNSW Philosophy Society Home">
           <img src={logo} alt="UNSW Philosophy Society Logo" className="logo-img" />
         </Link>
 
         {/* Desktop links */}
-        <ul className="nav-links">
-          {navItems.map((item) => (
+        <ul className="nav-links desktop-only">
+          {navItems.slice(0, 4).map((item) => (
             <li key={item.label}>
               <NavLink
                 to={item.to}
@@ -46,15 +50,41 @@ export default function NavBar() {
           ))}
         </ul>
 
-        {/* Right actions */}
-        <div className="nav-actions">
+        {/* Desktop Submit Button */}
+        <div className="nav-actions desktop-only">
           <Link to="/submit" className="btn-subscribe" aria-label="Submit to the Library">
             Submit
           </Link>
-          {/* Optional: add a secondary action
-          <a href="https://your-mailing-list-url" className="btn-secondary">Subscribe</a>
-          */}
         </div>
+
+        {/* Mobile Hamburger */}
+        <button 
+          className="hamburger mobile-only" 
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+        >
+          <span className={`hamburger-line ${open ? 'open' : ''}`}></span>
+          <span className={`hamburger-line ${open ? 'open' : ''}`}></span>
+          <span className={`hamburger-line ${open ? 'open' : ''}`}></span>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`mobile-menu ${open ? 'open' : ''}`}>
+        <ul className="mobile-nav-links">
+          {navItems.map((item) => (
+            <li key={item.label}>
+              <NavLink
+                to={item.to}
+                className={({ isActive }) => (isActive ? activeLinkClass : baseLinkClass)}
+                end
+              >
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   );

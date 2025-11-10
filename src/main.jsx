@@ -17,7 +17,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route path="/main" element={<MainSite />} />
         <Route path="/submit" element={<SubmissionsPage />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/events" element={<EventsPage />} />

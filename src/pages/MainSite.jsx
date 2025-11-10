@@ -4,8 +4,8 @@ import HeroSection from '../components/HeroSection';
 import ArticlesGrid from '../components/ArticlesGrid';
 import AboutSection from '../components/AboutSection';
 import Footer from '../components/Footer';
-import LoadingScreen from '../components/LoadingScreen';
 import '../styles/mainsite.css';
+import PageFadeLoader from '../components/PageFadeLoader';
 
 export default function MainSite() {
   const [loading, setLoading] = useState(true);
@@ -15,7 +15,7 @@ export default function MainSite() {
     window.scrollTo({ top: 0, behavior: 'instant' });
 
     // Show loading screen briefly (adjust as you like)
-    const t = setTimeout(() => setLoading(false), 1200);
+    const t = setTimeout(() => setLoading(false), 2000);
 
     // Smooth scroll for in-page anchors
     const handleAnchorClick = (e) => {
@@ -34,14 +34,14 @@ export default function MainSite() {
     };
   }, []);
 
-  if (loading) return <LoadingScreen />;
-
   return (
     <div className="main-site">
       <NavBar />
+        <PageFadeLoader duration={600}>
       <HeroSection />
       <ArticlesGrid />
       <AboutSection />
+        </PageFadeLoader>
       <Footer />
     </div>
   );

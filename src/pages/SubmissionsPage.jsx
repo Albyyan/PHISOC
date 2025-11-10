@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import MarkdownEditor from '../components/MarkdownEditor';
 import '../styles/submissions.css';
+import PageFadeLoader from '../components/PageFadeLoader';
 
 const topics = [
   'Metaphysics',
@@ -122,6 +123,7 @@ export default function SubmissionsPage() {
   return (
     <div className="submissions-page">
       <NavBar />
+      <PageFadeLoader duration={600}>
       
       <div className="submissions-container">
         <div className="submissions-header">
@@ -234,6 +236,7 @@ export default function SubmissionsPage() {
           </div>
         </form>
       </div>
+      </PageFadeLoader>
 
       <Footer />
     </div>

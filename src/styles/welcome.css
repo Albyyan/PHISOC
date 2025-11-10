@@ -10,6 +10,17 @@
   background: transparent;
 }
 
+/* Ensure navbar stays fixed and unaffected by parallax */
+.welcome-page .nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transform: none !important; /* Prevent any parallax effects */
+  will-change: auto;
+}
+
 /* Spacer simulating hero height before main content */
 .welcome-page::before {
   content: "";
@@ -75,7 +86,7 @@
   text-transform: uppercase;
   letter-spacing: -3px;
   white-space: nowrap;
-  z-index: 15;
+  z-index: 5; /* Below navbar (z-index: 1000) */
 
   opacity: 0;
   transition:
@@ -100,7 +111,7 @@
   font-size: 1.2rem;
   color: #C9A78C;
   line-height: 1.6;
-  z-index: 14;
+  z-index: 5; /* Below navbar */
 
   opacity: 0;
   transition:

@@ -25,6 +25,7 @@ export default function WelcomePage() {
       const banner = document.querySelector('.name-banner');
       const textSection = document.querySelector('.text-section');
       
+      // Only apply parallax to banner and text section, not navbar
       if (banner && textSection) {
         const bannerTranslateY = -50 - scrollY * 0.2;
         const textTranslateY = -50 - scrollY * 0.15;
@@ -39,7 +40,7 @@ export default function WelcomePage() {
   }, []);
 
   const handleLearnMore = () => {
-    navigate('/main');
+    navigate('/about');
   };
 
   if (loading) {
@@ -47,7 +48,7 @@ export default function WelcomePage() {
   }
 
   return (
-    <div className="welcome-page">
+    <div className="welcome-page">      
       <div 
         className="app-background zoom-out"
         style={{ backgroundImage: `url(${backgroundImage})` }}

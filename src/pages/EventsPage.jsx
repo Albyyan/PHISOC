@@ -2,65 +2,45 @@ import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import '../styles/events.css';
+import PageFadeLoader from '../components/PageFadeLoader';
+
+// Image imports
+import slaveryImg from '../asset/religion.jpg';
+import memoryImg from '../asset/memories.jpg';
+import sikhImg from '../asset/sikh.jpg';
+import discordIcon from '../asset/discord.png';
+import instaIcon from '../asset/insta.png';
+import facebookIcon from '../asset/facebook.png';
 
 const upcomingEvents = [
   {
     id: 1,
-    title: 'Introduction to Existentialism',
-    date: '2025-02-15',
-    time: '6:00 PM - 8:00 PM',
-    location: 'Mathews Theatre A',
+    title: 'Is Religion Slavery?',
+    date: '2025-11-14',
+    time: '3:00 PM - 5:00 PM',
+    location: 'QuadG054',
     type: 'Discussion',
-    description: 'Explore the philosophy of existence through the works of Sartre, Camus, and Kierkegaard. Open to all levels.',
-    imageTemplate: 'existentialism'
+    description:
+      'Is faith a path to liberation or submission? Does belief empower us, or bind us? Join us as we explore the philosophical tensions between freedom, obedience, and spiritual devotion.',
+    image: slaveryImg,
   },
-  {
-    id: 2,
-    title: 'Ethics in the Age of AI',
-    date: '2025-02-22',
-    time: '5:30 PM - 7:30 PM',
-    location: 'Online via Zoom',
-    type: 'Lecture',
-    description: 'Guest lecture by Dr. Sarah Chen on moral considerations in artificial intelligence and machine learning.',
-    imageTemplate: 'ai-ethics'
-  },
-  {
-    id: 3,
-    title: 'Philosophy Book Club: The Republic',
-    date: '2025-03-01',
-    time: '4:00 PM - 6:00 PM',
-    location: 'Quad Lawn',
-    type: 'Social',
-    description: 'Join us for a casual discussion of Plato\'s Republic over coffee and snacks. All welcome!',
-    imageTemplate: 'book-club'
-  },
-  {
-    id: 4,
-    title: 'Annual Essay Competition Launch',
-    date: '2025-03-08',
-    time: '12:00 PM - 2:00 PM',
-    location: 'Webster Theatre',
-    type: 'Competition',
-    description: 'Launch of our annual philosophical essay competition. Info session and Q&A.',
-    imageTemplate: 'competition'
-  }
 ];
 
 const pastEvents = [
   {
     id: 5,
-    title: 'Philosophy & Film: The Matrix',
-    date: '2025-01-20',
-    type: 'Social',
-    imageTemplate: 'film'
+    title: 'PHI✧SOC & PSYCHSOC ROUNDTABLE: ARE WE OUR MEMORIES?',
+    date: '2025-08-01',
+    type: 'Discussion',
+    image: memoryImg,
   },
   {
     id: 6,
-    title: 'Debate: Free Will vs Determinism',
+    title: 'Divine Echoes: Tracing Sufi and Sikh Wisdom Throughout Time',
     date: '2025-01-15',
     type: 'Discussion',
-    imageTemplate: 'debate'
-  }
+    image: sikhImg,
+  },
 ];
 
 export default function EventsPage() {
@@ -68,40 +48,30 @@ export default function EventsPage() {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
+    return date.toLocaleDateString('en-US', {
       weekday: 'long',
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
     });
   };
 
   const getEventColor = (type) => {
-    const colors = {
-      'Discussion': '#8b7a6a',
-      'Lecture': '#6a7a8b',
-      'Social': '#7a6a5a',
-      'Competition': '#6a5a7a'
-    };
-    return colors[type] || '#C9A78C';
-  };
-
-  const getImageGradient = (template) => {
-    const gradients = {
-      'existentialism': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      'ai-ethics': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      'book-club': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      'competition': 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-      'film': 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-      'debate': 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)'
-    };
-    return gradients[template] || 'linear-gradient(135deg, #C9A78C 0%, #8b7a6a 100%)';
+    switch (type) {
+      case 'Discussion':
+        return '#C1A57B';
+      case 'Lecture':
+        return '#8BA3D9';
+      default:
+        return '#999';
+    }
   };
 
   return (
     <div className="events-page">
       <NavBar />
-      
+      <PageFadeLoader duration={600}>
+
       <div className="events-container">
         {/* Hero Section */}
         <section className="events-hero">
@@ -112,15 +82,15 @@ export default function EventsPage() {
           </p>
         </section>
 
-        {/* Tab Navigation */}
+        {/* Tabs */}
         <div className="events-tabs">
-          <button 
+          <button
             className={`tab-btn ${activeTab === 'upcoming' ? 'active' : ''}`}
             onClick={() => setActiveTab('upcoming')}
           >
             Upcoming Events
           </button>
-          <button 
+          <button
             className={`tab-btn ${activeTab === 'past' ? 'active' : ''}`}
             onClick={() => setActiveTab('past')}
           >
@@ -133,12 +103,10 @@ export default function EventsPage() {
           <section className="events-list">
             {upcomingEvents.map((event) => (
               <article key={event.id} className="event-card">
-                <div 
-                  className="event-image"
-                  style={{ background: getImageGradient(event.imageTemplate) }}
-                >
+                <div className="event-image">
+                  <img src={event.image} alt={event.title} />
                   <div className="event-overlay">
-                    <span 
+                    <span
                       className="event-type"
                       style={{ backgroundColor: getEventColor(event.type) }}
                     >
@@ -146,14 +114,16 @@ export default function EventsPage() {
                     </span>
                   </div>
                 </div>
-                
+
                 <div className="event-content">
                   <div className="event-date-badge">
                     <div className="date-day">
                       {new Date(event.date).getDate()}
                     </div>
                     <div className="date-month">
-                      {new Date(event.date).toLocaleDateString('en-US', { month: 'short' })}
+                      {new Date(event.date).toLocaleDateString('en-US', {
+                        month: 'short',
+                      })}
                     </div>
                   </div>
 
@@ -187,20 +157,16 @@ export default function EventsPage() {
           <section className="past-events-grid">
             {pastEvents.map((event) => (
               <div key={event.id} className="past-event-card">
-                <div 
-                  className="past-event-image"
-                  style={{ background: getImageGradient(event.imageTemplate) }}
-                >
+                <div className="past-event-image">
+                  <img src={event.image} alt={event.title} />
                   <div className="past-event-overlay">
                     <span className="past-label">Past Event</span>
                   </div>
                 </div>
                 <div className="past-event-info">
                   <h3>{event.title}</h3>
-                  <p className="past-event-date">
-                    {formatDate(event.date)}
-                  </p>
-                  <span 
+                  <p className="past-event-date">{formatDate(event.date)}</p>
+                  <span
                     className="past-event-type"
                     style={{ color: getEventColor(event.type) }}
                   >
@@ -213,21 +179,30 @@ export default function EventsPage() {
         )}
 
         {/* Newsletter CTA */}
-        <section className="newsletter-section">
-          <div className="newsletter-content">
+        <section className="socials-section">
+          <div className="socials-content">
             <h2>Stay Updated</h2>
-            <p>Subscribe to our newsletter to receive updates about upcoming events and activities.</p>
-            <div className="newsletter-form">
-              <input 
-                type="email" 
-                placeholder="Enter your email address" 
-                className="newsletter-input"
-              />
-              <button className="newsletter-btn">Subscribe</button>
+            <p>
+              Stay in touch and follow our updates on social media.
+            </p>
+            <div className="socials-icons">
+              <a href="https://discord.gg/yourserver" target="_blank" rel="noopener noreferrer">
+                <img src={discordIcon} alt="Discord" />
+              </a>
+              <a href="https://www.instagram.com/yourpage" target="_blank" rel="noopener noreferrer">
+                <img src={instaIcon} alt="Instagram" />
+              </a>
+              <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer">
+                <img src={facebookIcon} alt="Facebook" />
+              </a>
             </div>
           </div>
         </section>
+
       </div>
+
+
+      </PageFadeLoader>
 
       <Footer />
     </div>

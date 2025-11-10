@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import '../styles/library.css';
+import PageFadeLoader from '../components/PageFadeLoader';
 
 export default function LibraryPage() {
   const [submissions, setSubmissions] = useState([]);
@@ -80,12 +81,15 @@ const formatDate = (dateString) => {
     return (
       <div className="library-page">
         <NavBar />
+            <PageFadeLoader duration={600}>
+
         <div className="library-container">
           <div className="loading-state">
             <div className="loading-spinner"></div>
             <p>Loading submissions...</p>
           </div>
         </div>
+          </PageFadeLoader>
         <Footer />
       </div>
     );
@@ -108,7 +112,6 @@ const formatDate = (dateString) => {
   return (
     <div className="library-page">
       <NavBar />
-      
       <div className="library-container">
         <div className="library-header">
           <h1>Library</h1>
@@ -178,7 +181,6 @@ const formatDate = (dateString) => {
           </div>
         )}
       </div>
-
       <Footer />
     </div>
   );

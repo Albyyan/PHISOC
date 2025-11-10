@@ -1,0 +1,26 @@
+.page-fade-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0a0a0a;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 600ms ease-out;
+  pointer-events: auto;
+}
+
+.page-fade-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page-fade-content {
+  opacity: 0;
+  transition: opacity 600ms ease-in;
+}
+
+.page-fade-content.fade-in {
+  opacity: 1;
+}

@@ -103,9 +103,19 @@
 }
 
 .opp-icon {
-  font-size: 4rem;
   margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.opp-icon img {
+  width: 48px;      /* adjust as needed */
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
 
 .opportunity-card h3 {
   font-size: 1.5rem;
@@ -122,7 +132,7 @@
 
 .opp-btn {
   display: inline-block;
-  padding: 0.8rem 2rem;
+  padding: 0.6rem 1.8rem;
   background: transparent;
   border: 2px solid #C9A78C;
   color: #C9A78C;
@@ -130,8 +140,18 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: all 0.3s;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
 }
+
+.opp-btn:hover {
+  background: #C9A78C;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
 
 .opp-btn:hover {
   background: #C9A78C;
@@ -315,6 +335,117 @@
   color: #8a8a8a;
   margin-bottom: 1.5rem;
 }
+
+/* Contact Section (with icons) */
+.contact-section {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  padding: 5rem 3rem;
+  text-align: center;
+}
+
+.contact-content h2 {
+  font-size: 2.5rem;
+  color: #C9A78C;
+  margin-bottom: 1rem;
+}
+
+.contact-content p {
+  font-size: 1.2rem;
+  color: #8a8a8a;
+  margin-bottom: 3rem;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #C9A78C;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+.contact-icon-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .contact-info {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-icon-img {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+
+.activity-card .btn-primary {
+  margin-top: 1vw; 
+  align-self: center;
+  padding: 0.8rem 2rem;
+  background: #C9A78C;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.activity-card .btn-primary:hover {
+  background: #e5c9a8;
+  transform: translateY(-2px);
+}
+
+.activity-card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  padding: 2.5rem 2rem 3.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;          /* ⬅ centre all children horizontally */
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+.activity-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.activity-icon img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  margin: 0 auto;               /* ⬅ belt-and-braces centering */
+}
+
 
 .contact-btn {
   padding: 1rem 2.5rem;

@@ -3,84 +3,48 @@ import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import '../styles/get-involved.css';
+import PageFadeLoader from '../components/PageFadeLoader';
+
+// Icon imports
+import memberIcon from '../asset/member.png';
+import submissionsIcon from '../asset/submissions.png';
+import connectionsIcon from '../asset/connections.png';
+import facebookIcon from '../asset/facebook.png';
+import discordIcon from '../asset/discord.png';
+import instaIcon from '../asset/insta.png';
 
 const opportunities = [
   {
     title: 'Become a Member',
-    icon: '🎓',
+    icon: memberIcon,
     description: 'Join our community of curious minds.',
     action: 'Sign Up',
-    link: '#membership'
+    link: '#membership',
   },
   {
     title: 'Submit Your Work',
-    icon: '✍️',
-    description: 'Share your philosophical essays, poetry, or creative writing. We publish outstanding work from students.',
+    icon: submissionsIcon,
+    description:
+      'Share your philosophical essays, poetry, or creative writing. We publish outstanding work from students.',
     action: 'Submit',
-    link: '/submit'
+    link: '/submit',
   },
   {
     title: 'Join the Team',
-    icon: '👥',
-    description: 'Help shape the society by taking on a leadership role. Applications open at the start of each year.',
+    icon: connectionsIcon,
+    description:
+      'Help shape the society by taking on a leadership role. Applications open at the start of each year.',
     action: 'Learn More',
-    link: '#exec'
+    link: '#exec',
   },
-  {
-    title: 'Volunteer at Events',
-    icon: '🤝',
-    description: 'Help organize and run our events. Great way to meet people and gain event management experience.',
-    action: 'Volunteer',
-    link: '#volunteer'
-  }
-];
-
-const sponsors = [
-  {
-    tier: 'Platinum',
-    benefits: [
-      'Logo on all promotional materials',
-      'Dedicated newsletter feature',
-      'Speaking slot at major events',
-      'Social media recognition',
-      'Custom partnership opportunities'
-    ],
-    amount: '$5,000+'
-  },
-  {
-    tier: 'Gold',
-    benefits: [
-      'Logo on website and events',
-      'Newsletter mention',
-      'Social media recognition',
-      'Event booth opportunity'
-    ],
-    amount: '$2,500 - $4,999'
-  },
-  {
-    tier: 'Silver',
-    benefits: [
-      'Logo on website',
-      'Newsletter mention',
-      'Social media thank you'
-    ],
-    amount: '$1,000 - $2,499'
-  },
-  {
-    tier: 'Bronze',
-    benefits: [
-      'Name on website',
-      'Social media recognition'
-    ],
-    amount: '$500 - $999'
-  }
 ];
 
 export default function GetInvolvedPage() {
   return (
     <div className="get-involved-page">
       <NavBar />
-      
+      <PageFadeLoader duration={600}>
+
       <div className="involved-container">
         {/* Hero Section */}
         <section className="involved-hero">
@@ -91,29 +55,50 @@ export default function GetInvolvedPage() {
           </p>
         </section>
 
-        {/* Opportunities Section */}
-        <section className="opportunities-section">
-          <div className="section-label">Ways to Participate</div>
-          <h2>Join Our Community</h2>
-          <div className="opportunities-grid">
-            {opportunities.map((opp, index) => (
-              <div key={index} className="opportunity-card">
-                <div className="opp-icon">{opp.icon}</div>
-                <h3>{opp.title}</h3>
-                <p>{opp.description}</p>
-                {opp.link.startsWith('/') ? (
-                  <Link to={opp.link} className="opp-btn">
-                    {opp.action} →
-                  </Link>
-                ) : (
-                  <a href={opp.link} className="opp-btn">
-                    {opp.action} →
-                  </a>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
+{/* Get Involved Section */}
+<section className="activities-section">
+  <div className="section-label">Ways to Participate</div>
+  <h2>Join Our Community</h2>
+
+  <div className="activities-grid">
+    <div className="activity-card">
+      <div className="activity-icon">
+        <img src={memberIcon} alt="Member Icon" />
+      </div>
+      <h3>Become a Member</h3>
+      <p>
+        Join our community of curious minds and participate in our discussions,
+        events, and publications.
+      </p>
+      <a href="#membership" className="btn-primary">Sign Up</a>
+    </div>
+
+    <div className="activity-card">
+      <div className="activity-icon">
+        <img src={submissionsIcon} alt="Submission Icon" />
+      </div>
+      <h3>Submit Your Work</h3>
+      <p>
+        Share your philosophical essays with us. We
+        publish outstanding work from students and thinkers alike.
+
+      </p>
+      <a href="/submit" className="btn-primary">Submit</a>
+    </div>
+
+    <div className="activity-card">
+      <div className="activity-icon">
+        <img src={connectionsIcon} alt="Connections Icon" />
+      </div>
+      <h3>Join the Team</h3>
+      <p>
+        Help shape the society by taking on a leadership role. Applications open
+        at the start of each year.
+      </p>
+      <a href="#exec" className="btn-primary">Learn More</a>
+    </div>
+  </div>
+</section>
 
         {/* Membership Section */}
         <section className="membership-section" id="membership">
@@ -153,12 +138,14 @@ export default function GetInvolvedPage() {
             <div className="membership-cta">
               <div className="price-card">
                 <h3>Annual Membership</h3>
-                <div className="price">$10</div>
-                <p className="price-note">One-time fee for the academic year</p>
-                <button className="join-btn">Join Now</button>
-                <p className="price-disclaimer">
-                  Financial assistance available. Contact us for details.
-                </p>
+                <div className="price">$0</div>
+                <button
+                  className="join-btn"
+                  onClick={() => window.open('https://campus.hellorubric.com/?s=6384', '_blank')}
+                >
+                  Join Now
+                </button>
+
               </div>
             </div>
           </div>
@@ -166,77 +153,69 @@ export default function GetInvolvedPage() {
 
         {/* Executive Positions Section */}
         <section className="exec-section" id="exec">
-          <div className="section-label">Leadership</div>
+          <div className="section-label">Internals</div>
           <h2>Join the Subcommittee Team</h2>
           <p className="section-intro">
-            Applications for executive positions open at the beginning of each academic year. 
-            We're looking for passionate, organized individuals to help lead the society.
+            Applications for subcommittee positions open up soon. Come back later for more details
           </p>
           <div className="exec-grid">
             <div className="exec-role">
-              <h3>President</h3>
+              <h3>Marketing Subcommittee</h3>
               <p>Lead the society, chair meetings, and represent us at university events.</p>
             </div>
             <div className="exec-role">
-              <h3>Vice President</h3>
+              <h3>Events Subcommittee</h3>
               <p>Support the president and oversee day-to-day operations.</p>
             </div>
             <div className="exec-role">
-              <h3>Publications Director</h3>
+              <h3>Roundtable Subcommittee</h3>
               <p>Manage our journal, review submissions, and coordinate with writers.</p>
             </div>
           </div>
         </section>
 
-        {/* Sponsorship Section */}
-        <section className="sponsorship-section" id="sponsorships">
-          <div className="section-label">Partnerships</div>
-          <h2>Sponsor the Philosophy Society</h2>
-          <p className="section-intro">
-            Support philosophical education and community building at UNSW. 
-            Our sponsorship packages offer visibility and engagement with an intellectually curious audience.
-          </p>
-          <div className="sponsors-grid">
-            {sponsors.map((sponsor, index) => (
-              <div key={index} className="sponsor-card">
-                <div className="sponsor-tier">{sponsor.tier}</div>
-                <div className="sponsor-amount">{sponsor.amount}</div>
-                <ul className="sponsor-benefits">
-                  {sponsor.benefits.map((benefit, i) => (
-                    <li key={i}>{benefit}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <div className="sponsor-cta">
-            <p>Interested in partnering with us?</p>
-            <button className="contact-btn">Get in Touch</button>
-          </div>
-        </section>
+{/* Contact Section */}
+<section className="contact-section">
+  <div className="contact-content">
+    <h2>Have Questions?</h2>
+    <p>We'd love to hear from you. Reach out to learn more about getting involved.</p>
 
-        {/* Contact Section */}
-        <section className="contact-section">
-          <div className="contact-content">
-            <h2>Have Questions?</h2>
-            <p>We'd love to hear from you. Reach out to learn more about getting involved.</p>
-            <div className="contact-info">
-              <div className="contact-item">
-                <span className="contact-icon">✉️</span>
-                <span>philosophy@unsw.edu.au</span>
-              </div>
-              <div className="contact-item">
-                <span className="contact-icon">💬</span>
-                <span>Join our Discord server</span>
-              </div>
-              <div className="contact-item">
-                <span className="contact-icon">📱</span>
-                <span>Follow us on Instagram</span>
-              </div>
-            </div>
-          </div>
-        </section>
+    <div className="contact-info">
+      <a
+        href="https://www.facebook.com/unswphisoc"
+        className="contact-item"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src={facebookIcon} alt="Facebook" className="contact-icon-img" />
+        <span>Find us on Facebook</span>
+      </a>
+
+      <a
+        href="https://discord.gg/rCSVqnpD99"
+        className="contact-item"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src={discordIcon} alt="Discord" className="contact-icon-img" />
+        <span>Join our Discord server</span>
+      </a>
+
+      <a
+        href="https://www.instagram.com/unswphisoc/"
+        className="contact-item"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src={instaIcon} alt="Instagram" className="contact-icon-img" />
+        <span>Follow us on Instagram</span>
+      </a>
+    </div>
+  </div>
+</section>
+
       </div>
+      </PageFadeLoader>
 
       <Footer />
     </div>
